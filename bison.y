@@ -5,9 +5,6 @@
     int yyerror(char *s);
 %}
 
-%define parse.lac full
-%define parse.error verbose
-
 %token ADDITION  SUBTRACTION  MULTIPLICATION  DIVISION  MODULO  SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
 %token IDENTIFIER NUM
