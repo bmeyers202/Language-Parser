@@ -3,9 +3,9 @@
 #include "y.tab.h"
 void extern yyerror(char*);
 void InvalidToken();
-
-%}
 #define YY_FLUSH_BUFFER yy_flush_buffer(yy_current_buffer )
+%}
+
 
 whitespace  [ \t\r\v\f]
 newline     [\n]                     
