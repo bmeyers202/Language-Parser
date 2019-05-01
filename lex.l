@@ -16,11 +16,11 @@ id          [a-zA-Z][a-zA-Z0-9]*
 {digits}                    {yylval.number = atoi(yytext);  return NUM;}
 {id}                        {yylval.id = strdup(yytext); return IDENTIFIER;}                                      
 
-" + "                                             {return ADDITION;}
-" - "                                             {return SUBTRACTION;}
-" * "                                             {return MULTIPLICATION;}
-" / "                                             {return DIVISION;}
-" % "                                             {return MODULO;}
+" + "                                             {return OPERATION;}
+" - "                                             {return OPERATION;}
+" * "                                             {return OPERATION;}
+" / "                                             {return OPERATION;}
+" % "                                             {return OPERATION;}
 " ; "                                             {return SEMI_COLON;}
 " = "                                             {return EQUALS;}
 "("                                               {return BRACKET_OPEN;}
