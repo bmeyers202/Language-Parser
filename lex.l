@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "y.tab.h"
 void gracefulExit();
-void invalidToken();
+void InvalidToken();
 
 %}
 
@@ -28,7 +28,7 @@ id          [a-zA-Z][_a-zA-Z0-9]*
 
 {newline}                                         {yylineno++;}
 {whitespace}                                      ;
-.                                                 {invalidToken(); return OTHER;}
+.                                                 {InvalidToken(); return OTHER;}
 
 %%
 void yyerror(char *s) {
