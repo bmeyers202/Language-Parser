@@ -23,8 +23,8 @@ id          [a-zA-Z][a-zA-Z0-9]*
 " % "                                             {return MODULO;}
 " ; "                                             {return SEMI_COLON;}
 " = "                                             {return EQUALS;}
-" ("                                              {return BRACKET_OPEN;}
-") "                                              {return BRACKET_CLOSE;}
+"("                                               {return BRACKET_OPEN;}
+")"                                               {return BRACKET_CLOSE;}
 
 {newline}                                         {yylineno++;}
 {whitespace}                                      ;
