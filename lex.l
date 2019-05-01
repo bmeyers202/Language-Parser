@@ -3,13 +3,13 @@
 #include "y.tab.h"
 void extern yyerror(char*);
 void InvalidToken();
-extern YY_FLUSH_BUFFER();
 %}
 
 whitespace  [ \t\r\v\f]
 newline     [\n]                     
 digits      [0-9]+                                          
 id          [a-zA-Z][a-zA-Z0-9]*    
+END_OF_FILE <<EOF>>
 
 %%
 
@@ -26,9 +26,10 @@ id          [a-zA-Z][a-zA-Z0-9]*
 "("                                               {return BRACKET_OPEN;}
 ")"                                               {return BRACKET_CLOSE;}
 
-{newline}                                         {YY_FLUSH_BUFFER(YY_CURRENT_BUFFER); yylineno++;}
+{newline}                                         {yylineno++; return -1;}
 {whitespace}                                      ;
 .                                                 {InvalidToken(); return OTHER;}
+{END_OF_FILE}                                     {return -2;}
 
 %%
 void yyerror(char *s) {
