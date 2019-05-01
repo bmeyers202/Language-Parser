@@ -1,7 +1,7 @@
 %{
 #include <stdio.h>
 #include "y.tab.h"
-void gracefulExit();
+void extern yyerror(char*);
 void InvalidToken();
 
 %}
