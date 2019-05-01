@@ -26,7 +26,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 "("                                               {return BRACKET_OPEN;}
 ")"                                               {return BRACKET_CLOSE;}
 
-{newline}                                         {yylineno++;}
+{newline}                                         {YY_FlUSH_BUFFER; yylineno++;}
 {whitespace}                                      ;
 .                                                 {InvalidToken(); return OTHER;}
 
