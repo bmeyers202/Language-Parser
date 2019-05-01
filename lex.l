@@ -3,6 +3,7 @@
 #include "y.tab.h"
 void extern yyerror(char*);
 void InvalidToken();
+extern YY_FLUSH_BUFFER;
 %}
 
 
@@ -26,7 +27,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 "("                                               {return BRACKET_OPEN;}
 ")"                                               {return BRACKET_CLOSE;}
 
-{newline}                                         {yy_flush_buffer(yy_current_buffer); yylineno++;}
+{newline}                                         {YY_FLUSH_BUFFER; yylineno++;}
 {whitespace}                                      ;
 .                                                 {InvalidToken(); return OTHER;}
 
