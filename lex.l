@@ -6,7 +6,6 @@ void InvalidToken();
 extern YY_FLUSH_BUFFER;
 %}
 
-
 whitespace  [ \t\r\v\f]
 newline     [\n]                     
 digits      [0-9]+                                          
