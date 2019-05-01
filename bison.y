@@ -20,7 +20,6 @@
 
 %%
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSIONS SEMI_COLON
-          | IDENTIFIER EQUALS EXPRESSIONS SEMI_COLON ASSIGNMENT 
 ;
 
 EXPRESSIONS:  IDENTIFIER
@@ -39,8 +38,9 @@ EXPRESSIONS:  IDENTIFIER
 %%
 
 int main(){
-
-  yyparse();
+  while(yyparse() != -2){
+    yyparse();
+  }
   printf("No Errors in Provided Input\n");
   return 0;
 }
