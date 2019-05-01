@@ -35,10 +35,6 @@ EXPRESSIONS:  IDENTIFIER
 ;
 
 %%
-int yyerror(char *s){
-    printf("Syntax Error on Line %s/n", s);
-    return 0;
-}
 
 int main(){
 
