@@ -31,12 +31,12 @@ id          [a-zA-Z][_a-zA-Z0-9]*
 .                                                 {invalidToken(); return OTHER;}
 
 %%
-void gracefulExit(){
-    printf("Your a bitch");
+void yyerror(char *s) {
+    fprintf(stderr, "\nERROR ON LINE %d : \n %s\n", yylineno, s);
     exit(0);
 }
 
-void invalidToken(){
+void InvalidToken(){
     printf("ERROR ON LINE %d : \n Invalid Token %s\n", yylineno,yytext);
     exit(0);
 }
