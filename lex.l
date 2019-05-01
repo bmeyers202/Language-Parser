@@ -9,7 +9,7 @@ whitespace  [ \t\r\v\f]
 newline     [\n]                     
 digits      [0-9]+                                          
 id          [a-zA-Z][a-zA-Z0-9]*    
-END_OF_FILE <<EOF>>
+
 
 %%
 
@@ -25,11 +25,11 @@ END_OF_FILE <<EOF>>
 " = "                                             {return EQUALS;}
 "("                                               {return BRACKET_OPEN;}
 ")"                                               {return BRACKET_CLOSE;}
+"<<EOF>>"                                         {return -2};
 
 {newline}                                         {yylineno++; return -1;}
 {whitespace}                                      ;
 .                                                 {InvalidToken(); return OTHER;}
-{END_OF_FILE}                                     {return -2;}
 
 %%
 void yyerror(char *s) {
