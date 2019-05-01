@@ -14,7 +14,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 %%
 
 {digits}                    {yylval.number = atoi(yytext);  return NUM;}
-{id}                        {yylval.id = yytext; return IDENTIFIER;}                                      
+{id}                        {yylval.id = strdup(yytext); return IDENTIFIER;}                                      
 
 " + "                                             {return ADDITION;}
 " - "                                             {return SUBTRACTION;}
