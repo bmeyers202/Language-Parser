@@ -37,7 +37,7 @@ void gracefulExit(){
 }
 
 void invalidToken(){
-    printf("ERROR: Invalid Token");
+    printf("ERROR ON LINE %d : \n Invalid Token %s\n", yylineno,yytext);
     exit(0);
 }
 
