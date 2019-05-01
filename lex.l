@@ -40,3 +40,7 @@ void invalidToken(){
     printf("ERROR: Invalid Token");
     exit(0);
 }
+
+int yywrap(void){
+    return 1;
+}
