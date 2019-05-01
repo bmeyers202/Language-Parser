@@ -25,7 +25,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 " = "                                             {return EQUALS;}
 "("                                               {return BRACKET_OPEN;}
 ")"                                               {return BRACKET_CLOSE;}
-"<<EOF>>"                                         {return -2};
+"<<EOF>>"                                         {return -2;}
 
 {newline}                                         {yylineno++; return -1;}
 {whitespace}                                      ;
