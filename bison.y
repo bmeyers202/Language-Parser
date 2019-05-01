@@ -1,8 +1,9 @@
 %{
     #include <stdio.h>
-
-    int yylex();
-    int yyerror(char *s);
+    extern void yyerror();
+    extern int yylex();
+    extern char* yytext;
+    extern int yylineno;  
 %}
 
 %token ADDITION  SUBTRACTION  MULTIPLICATION  DIVISION  MODULO  SEMI_COLON  EQUALS 
