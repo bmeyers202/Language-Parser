@@ -1,6 +1,6 @@
 %{
 #include <stdio.h>
-
+#include "y.tab.h"
 void gracefulExit();
 void invalidToken();
 
