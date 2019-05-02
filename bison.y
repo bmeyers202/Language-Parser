@@ -18,7 +18,7 @@
 }
 
 %%
-INPUT: ASIGNMENT NEWLINE                        {printf("%s", yytext);}
+INPUT: ASSIGNMENT NEWLINE                        {printf("%s", yytext);}
      | EXPRESSION NEWLINE                       {printf("%s", yytext);}
      | INPUT ASSIGNMENT NEWLINE                 {printf("%s", yytext);}
      | INPUT EXPRESSION NEWLINE                 {printf("%s", yytext);}
