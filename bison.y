@@ -21,7 +21,7 @@
 INPUT:
      | INPUT ASSIGNMENT NEWLINE
      | INPUT EXPRESSION NEWLINE
-     | INPUT error NEWLINE                  {yyerrok; printf(" On line %d: \'%s\' is invalid", yylineno, yytext);}
+     | INPUT error NEWLINE                  {yyerrok; printf(" On line %d: %s is invalid", yylineno, yytext);}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
