@@ -29,18 +29,9 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {InvalidToken(); return OTHER;}
+.                                                 {return OTHER;}
 
 %%
-void yyerror(char *s) {
-    fprintf(stderr, "\nERROR ON LINE %d : %s\n", yylineno, s);
-    printf("\"%s\" is invalid\n", yytext);
-}
-
-void InvalidToken(){
-    printf("ERROR ON LINE %d : \n Invalid Token %s\n", yylineno,yytext);
-    exit(0);
-}
 
 int yywrap(void){
     return 1;
