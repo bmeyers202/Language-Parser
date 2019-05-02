@@ -20,9 +20,9 @@
 
 %%
 INPUT:
-     | ASSIGNMENT NEWLINE
-     | EXPRESSION NEWLINE
-     | error NEWLINE                  {yyerrorok;}
+     | INPUT ASSIGNMENT NEWLINE
+     | INPUT EXPRESSION NEWLINE
+     | INPUT error NEWLINE                  {yyerrorok;}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
