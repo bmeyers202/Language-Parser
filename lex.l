@@ -23,6 +23,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 " = "                                             {return EQUALS;}
 "("                                               {return BRACKET_OPEN;}
 ")"                                               {return BRACKET_CLOSE;}
+"<<EOF>>"                                         {return END_OF_FILE;}
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
