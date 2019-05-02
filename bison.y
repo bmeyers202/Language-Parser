@@ -18,8 +18,7 @@
 }
 
 %%
-INPUT: END_OF_FILE                          {return -1;}
-     | ASSIGNMENT NEWLINE INPUT
+INPUT: ASSIGNMENT NEWLINE INPUT
      | EXPRESSION NEWLINE INPUT
      | error NEWLINE INPUT                  {yyerrok; printf("   Error found on line %d \n", yylineno); }
 ;
