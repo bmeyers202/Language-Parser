@@ -1,6 +1,5 @@
 %{
     #include <stdio.h>
-    extern void yyerror(char* s);
     extern int yylex();
     extern char* yytext;
     extern int yylineno;  
@@ -22,7 +21,7 @@
 INPUT:
      | INPUT ASSIGNMENT NEWLINE
      | INPUT EXPRESSION NEWLINE
-     | INPUT error NEWLINE                  {yyerror(yytext);}
+     | INPUT error NEWLINE                  {yyerrok; printf("Error on line %d", yylineno); printf(" : %s is invalid", yytext};}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
