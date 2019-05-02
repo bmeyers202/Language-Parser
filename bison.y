@@ -1,6 +1,5 @@
 %{
     #include <stdio.h>
-    extern void yyerror(char* s);
     extern int yylex();
     extern char* yytext;
     extern int yylineno;  
@@ -38,6 +37,6 @@ EXPRESSION: IDENTIFIER OPERATION IDENTIFIER
 
 int main(){
   yyparse();
-  printf("No Errors in Provided Input\n");
+  printf("Reached End of File\n");
   return 0;
 }
