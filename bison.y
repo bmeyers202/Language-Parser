@@ -18,11 +18,12 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                        {printf("%s", yytext);}
-     | EXPRESSION NEWLINE                       {printf("%s", yytext);}
-     | INPUT ASSIGNMENT NEWLINE                 {printf("%s", yytext);}
-     | INPUT EXPRESSION NEWLINE                 {printf("%s", yytext);}
+INPUT: ASSIGNMENT NEWLINE                        
+     | EXPRESSION NEWLINE                       
+     | INPUT ASSIGNMENT NEWLINE                 
+     | INPUT EXPRESSION NEWLINE                 
      | INPUT error NEWLINE                      {yyerrok; printf("   Error found on line %d \n", yylineno); }
+     | error NEWLINE
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
