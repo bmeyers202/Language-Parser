@@ -7,7 +7,7 @@
 
 %token OPERATION SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
-%token IDENTIFIER NUM OTHER NEWLINE
+%token IDENTIFIER NUM OTHER NEWLINE END_OF_FILE
 
 %type <op> OPERATION
 
@@ -18,11 +18,10 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE
-     | EXPRESSION NEWLINE
-     | INPUT ASSIGNMENT NEWLINE
-     | INPUT EXPRESSION NEWLINE
-     | INPUT error NEWLINE                  {yyerrok; printf("   Error found on line %d \n", yylineno); }
+INPUT: END_OF_FILE                          {return -1;}
+     | ASSIGNMENT NEWLINE INPUT
+     | EXPRESSION NEWLINE INPUT
+     | error NEWLINE INPUT                  {yyerrok; printf("   Error found on line %d \n", yylineno); }
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
