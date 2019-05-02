@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include "y.tab.h"
+void extern yyerror(char*)
 %}
 
 whitespace  [ \t\r\v\f]
