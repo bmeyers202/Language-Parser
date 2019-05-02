@@ -25,14 +25,14 @@ id          [a-zA-Z][a-zA-Z0-9]*
 " = "                                             {return EQUALS;}
 "("                                               {return BRACKET_OPEN;}
 ")"                                               {return BRACKET_CLOSE;}
-"<<EOF>>"                                         {return -2;}
+"<<EOF>>"                                         {return -1;}
 
-{newline}                                         {yylineno++; return -1;}
+{newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
 .                                                 {InvalidToken(); return OTHER;}
 
 %%
-void yyerror(char *s) {
+void yyerrorok(char *s) {
     fprintf(stderr, "\nERROR ON LINE %d : %s\n", yylineno, s);
     printf("\"%s\" is invalid\n", yytext);
     exit(0);
