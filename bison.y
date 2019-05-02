@@ -22,8 +22,7 @@ INPUT: ASSIGNMENT NEWLINE
      | EXPRESSION NEWLINE                       
      | INPUT ASSIGNMENT NEWLINE                 
      | INPUT EXPRESSION NEWLINE                 
-     | INPUT error NEWLINE                      {yyerrok; printf("   Error found on line %d \n", yylineno); }
-     | error NEWLINE
+     | INPUT error NEWLINE                      {printf("On line %d:", yylineno); yyerrok;}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
