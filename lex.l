@@ -32,10 +32,9 @@ id          [a-zA-Z][a-zA-Z0-9]*
 .                                                 {InvalidToken(); return OTHER;}
 
 %%
-void yyerrorok(char *s) {
+void yyerror(char *s) {
     fprintf(stderr, "\nERROR ON LINE %d : %s\n", yylineno, s);
     printf("\"%s\" is invalid\n", yytext);
-    exit(0);
 }
 
 void InvalidToken(){
