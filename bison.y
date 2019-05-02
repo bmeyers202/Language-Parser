@@ -20,7 +20,7 @@
 %%
 INPUT: ASSIGNMENT NEWLINE INPUT
      | EXPRESSION NEWLINE INPUT
-     | error NEWLINE INPUT                  {yyerrok; printf("   Error found on line %d \n", yylineno); }
+     | error NEWLINE INPUT                  {yyerrok("   Error found on line %d \n", yylineno); }
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
