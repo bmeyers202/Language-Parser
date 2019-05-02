@@ -35,9 +35,7 @@ EXPRESSION: IDENTIFIER OPERATION IDENTIFIER
 %%
 
 int main(){
-  while(yyparse() != -2){
-    yyparse();
-  }
+  yyparse();
   printf("No Errors in Provided Input\n");
   return 0;
 }
