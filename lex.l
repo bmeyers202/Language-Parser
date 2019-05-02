@@ -30,6 +30,10 @@ id          [a-zA-Z][a-zA-Z0-9]*
 .                                                 {return OTHER;}
 
 %%
+void yyerrorok(char *s) {
+    fprintf(stderr, "\nERROR ON LINE %d : %s\n", yylineno, s);
+    printf("\"%s\" is invalid\n", yytext);
+}
 
 int yywrap(void){
     return 1;
