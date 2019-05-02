@@ -18,7 +18,8 @@
 }
 
 %%
-INPUT:
+INPUT: ASSIGNMENT NEWLINE
+     | EXPRESSION NEWLINE
      | INPUT ASSIGNMENT NEWLINE
      | INPUT EXPRESSION NEWLINE
      | INPUT error NEWLINE                  {yyerrok; printf("   Error found on line %d \n", yylineno); }
