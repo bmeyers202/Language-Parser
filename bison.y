@@ -25,7 +25,7 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d", yylineno); pr
      | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}
      | INPUT error NEWLINE 
      {
-        yyerror("INVALID INPUT");
+        printf("Bad Input");
      }
 ;
 
@@ -37,6 +37,9 @@ EXPRESSION: IDENTIFIER OPERATION IDENTIFIER
            | EXPRESSION OPERATION IDENTIFIER
            | IDENTIFIER OPERATION BRACKET_OPEN EXPRESSION BRACKET_CLOSE
 ;
+
+ERROR: OTHER        {yyerror("INVALID TOKEN");}
+      
 
 %%
 
