@@ -3,7 +3,7 @@
     extern int yylex();
     extern char* yytext;
     extern int yylineno;
-    extern void yyerror(char*);
+    extern void yyerror();
 %}
 
 %token OPERATION SEMI_COLON  EQUALS 
@@ -22,8 +22,7 @@
 INPUT: ASSIGNMENT NEWLINE                        
      | EXPRESSION NEWLINE                       
      | INPUT ASSIGNMENT NEWLINE                 
-     | INPUT EXPRESSION NEWLINE                 
-     | INPUT error NEWLINE                      {yyerror("Error found");}
+     | INPUT EXPRESSION NEWLINE                  {yyerror(yytext);}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
