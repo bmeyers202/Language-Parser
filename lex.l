@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
+void int invalidToken;
 %}
 
 whitespace  [ \t\r\v\f]
 newline     [\n]                     
 digits      [0-9]+                                          
 id          [a-zA-Z][a-zA-Z0-9]*    
-tokenCounter = 0;
 
 %%
 
@@ -27,7 +27,7 @@ tokenCounter = 0;
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO; yyerror("INVALID TOKEN");}
+.                                                 {ECHO; invalidToken = 1;}
 
 %%
 void yyerror(char *reason) {
