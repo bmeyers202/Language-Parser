@@ -20,9 +20,9 @@
 
 %%
 INPUT: ASSIGNMENT NEWLINE                   {printf(" <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
-     | EXPRESSION NEWLINE                   {printf(" <LINE %d", yylineno); printf(" <PASSED: VALID EXPRESSION>\n");}  
-     | INPUT ASSIGNMENT NEWLINE             {printf(" <LINE %d", yylineno); printf(" <PASSED: VALID ASSIGNMENT>\n");}
-     | INPUT EXPRESSION NEWLINE             {printf(" <LINE %d", yylineno); printf(" <PASSED: VALID EXPRESSION>\n");}
+     | EXPRESSION NEWLINE                   {printf(" <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}  
+     | INPUT ASSIGNMENT NEWLINE             {printf(" <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
+     | INPUT EXPRESSION NEWLINE             {printf(" <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}
      | INPUT error NEWLINE                  {yyerror("INVALID INPUT");}
 ;
 
