@@ -4,7 +4,6 @@
     extern char* yytext;
     extern int yylineno;
     extern void yyerror();
-    extern int invalidToken;
 %}
 
 %token OPERATION SEMI_COLON  EQUALS 
@@ -24,7 +23,10 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d", yylineno); pr
      | EXPRESSION NEWLINE                   {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}  
      | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
      | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}
-     | INPUT error NEWLINE                  {if(invalidToken == 1) yyerror("INVALID TOKEN"); else yyerror("INVALID INPUT");invalidToken = 0;}
+     | INPUT error NEWLINE 
+     {
+        yyerror("INVALID INPUT");
+     }
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
