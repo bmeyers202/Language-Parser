@@ -39,7 +39,6 @@ EXPRESSION: IDENTIFIER OPERATION IDENTIFIER
 %%
 
 int main(){
-  invalidToken = 0;
   yyparse();
   printf("Reached End of File\n");
   return 0;
