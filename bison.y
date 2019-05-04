@@ -21,8 +21,8 @@
 %%
 INPUT: ASSIGNMENT NEWLINE                        
      | EXPRESSION NEWLINE                       
-     | INPUT ASSIGNMENT NEWLINE                 
-     | INPUT EXPRESSION NEWLINE                  {yyerror(yytext);}
+     | INPUT ASSIGNMENT NEWLINE                
+     | INPUT error NEWLINE                  {yyerror("Invalid assignment");}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
