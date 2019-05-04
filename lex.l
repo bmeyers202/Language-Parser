@@ -31,7 +31,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 %%
 void yyerror(char *s) {
-    fprintf("ERROR ON LINE %d : \n", yylineno);
+    fprintf("ERROR ON LINE %s : %s\n", yylineno, s);
 }
 
 int yywrap(void){
