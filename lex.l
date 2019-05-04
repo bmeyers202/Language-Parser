@@ -26,7 +26,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 "("                                               {ECHO; return BRACKET_OPEN;}
 ")"                                               {ECHO; return BRACKET_CLOSE;}
 
-{newline}                                         {ECHO; yylineno++; return NEWLINE;}
+{newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
 .                                                 {ECHO; InvalidToken();}
 
