@@ -19,10 +19,11 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                        
-     | EXPRESSION NEWLINE                       
-     | INPUT ASSIGNMENT NEWLINE                
-     | INPUT error NEWLINE                  {yyerrok;}
+INPUT: ASSIGNMENT NEWLINE                   {print("   <VALID ASSIGNMENT>");}
+     | EXPRESSION NEWLINE                   {print("   <VALID EXPRESSION>");}  
+     | INPUT ASSIGNMENT NEWLINE             {print("   <VALID ASSIGNMENT>");}
+     | INPUT EXPRESSION NEWLINE             {print("   <VALID EXPRESSION>");}
+     | INPUT error NEWLINE                  {yyerror("Invalid Statement");}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
