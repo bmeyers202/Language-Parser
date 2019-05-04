@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-int extern tokenCounter;
 %}
 
 whitespace  [ \t\r\v\f]
@@ -13,18 +12,18 @@ tokenCounter = 0;
 
 %%
 
-{digits}                    {yylval.number = atoi(yytext); tokenCounter++; ECHO; return NUM;}
-{id}                        {yylval.id = strdup(yytext); tokenCounter++; ECHO; return IDENTIFIER;}                                      
+{digits}                    {yylval.number = atoi(yytext); ECHO; return NUM;}
+{id}                        {yylval.id = strdup(yytext); ECHO; return IDENTIFIER;}                                      
 
-" + "                                             {ECHO; tokenCounter++; return OPERATION;}
-" - "                                             {ECHO; tokenCounter++; return OPERATION;}
-" * "                                             {ECHO; tokenCounter++; return OPERATION;}
-" / "                                             {ECHO; tokenCounter++; return OPERATION;}
-" % "                                             {ECHO; tokenCounter++; return OPERATION;}
-" ; "                                             {ECHO; tokenCounter++; return SEMI_COLON;}
-" = "                                             {ECHO; tokenCounter++; return EQUALS;}
-"("                                               {ECHO; tokenCounter++; return BRACKET_OPEN;}
-")"                                               {ECHO; tokenCounter++; return BRACKET_CLOSE;}
+" + "                                             {ECHO; return OPERATION;}
+" - "                                             {ECHO; return OPERATION;}
+" * "                                             {ECHO; return OPERATION;}
+" / "                                             {ECHO; return OPERATION;}
+" % "                                             {ECHO; return OPERATION;}
+" ; "                                             {ECHO; return SEMI_COLON;}
+" = "                                             {ECHO; return EQUALS;}
+"("                                               {ECHO; return BRACKET_OPEN;}
+")"                                               {ECHO; return BRACKET_CLOSE;}
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
@@ -32,7 +31,7 @@ tokenCounter = 0;
 
 %%
 void yyerror(char *reason) {
-    printf(" <LINE %d", yylineno);
+    printf("   <LINE %d", yylineno);
     printf(" FAILED: %s>\n", reason);
 }
 
