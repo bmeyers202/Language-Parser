@@ -23,7 +23,7 @@ INPUT: ASSIGNMENT NEWLINE                   {printf(" <LINE %s", yylineno); prin
      | EXPRESSION NEWLINE                   {printf(" <LINE %s", yylineno); printf(" <PASSED: VALID EXPRESSION>\n");}  
      | INPUT ASSIGNMENT NEWLINE             {printf(" <LINE %s", yylineno); printf(" <PASSED: VALID ASSIGNMENT>\n");}
      | INPUT EXPRESSION NEWLINE             {printf(" <LINE %s", yylineno); printf(" <PASSED: VALID EXPRESSION>\n");}
-     | INPUT error{;} NEWLINE               {yyerror("INVALID INPUT");}
+     | INPUT error NEWLINE                  {yyerror("INVALID INPUT");}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
