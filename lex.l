@@ -1,7 +1,7 @@
 %{
 #include <stdio.h>
 #include "y.tab.h"
-void extern yyerror(char*)
+void extern yyerror(char*);
 %}
 
 whitespace  [ \t\r\v\f]
@@ -31,8 +31,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 %%
 void yyerror(char *s) {
-    fprintf(stderr, "\nERROR ON LINE %d : %s\n", yylineno, s);
-    printf("\"%s\" is invalid\n", yytext);
+    fprintf(stderr, "\nERROR ON LINE %d : %s is invalid\n", yylineno, s);
 }
 
 int yywrap(void){
