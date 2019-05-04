@@ -19,10 +19,10 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                   {print("   <VALID ASSIGNMENT>");}
-     | EXPRESSION NEWLINE                   {print("   <VALID EXPRESSION>");}  
-     | INPUT ASSIGNMENT NEWLINE             {print("   <VALID ASSIGNMENT>");}
-     | INPUT EXPRESSION NEWLINE             {print("   <VALID EXPRESSION>");}
+INPUT: ASSIGNMENT NEWLINE                   {printf("   <VALID ASSIGNMENT>");}
+     | EXPRESSION NEWLINE                   {printf("   <VALID EXPRESSION>");}  
+     | INPUT ASSIGNMENT NEWLINE             {printf("   <VALID ASSIGNMENT>");}
+     | INPUT EXPRESSION NEWLINE             {printf("   <VALID EXPRESSION>");}
      | INPUT error NEWLINE                  {yyerror("Invalid Statement");}
 ;
 
