@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-int extern invalidToken;
 %}
 
 whitespace  [ \t\r\v\f]
@@ -27,7 +26,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO; invalidToken = 1;}
+.                                                 {ECHO;}
 
 %%
 void yyerror(char *reason) {
