@@ -19,11 +19,11 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
-     | EXPRESSION NEWLINE                   {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}  
-     | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
-     | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}
-     | INPUT error NEWLINE 
+INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d", yylineno-1); printf(" PASSED: VALID ASSIGNMENT>\n");}
+     | EXPRESSION NEWLINE                   {printf("   <LINE %d", yylineno-1); printf(" PASSED: VALID EXPRESSION>\n");}  
+     | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d", yylineno-1); printf(" PASSED: VALID ASSIGNMENT>\n");}
+     | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d", yylineno-1); printf(" PASSED: VALID EXPRESSION>\n");}
+     | INPUT error NEWLINE   
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
