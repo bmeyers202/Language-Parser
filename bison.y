@@ -22,7 +22,7 @@
 INPUT: ASSIGNMENT NEWLINE                        
      | EXPRESSION NEWLINE                       
      | INPUT ASSIGNMENT NEWLINE                
-     | INPUT error NEWLINE                  {yyerror("Invalid assignment");}
+     | INPUT error NEWLINE                  {yyerrorok;}
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
