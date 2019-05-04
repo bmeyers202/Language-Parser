@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-void InvalidToken();
 %}
 
 whitespace  [ \t\r\v\f]
@@ -28,16 +27,11 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO; InvalidToken();}
+.                                                 {ECHO;}
 
 %%
 void yyerror(char *s) {
     printf("ERROR ON LINE NUMBER  %d : %s\n", yylineno, s);
-}
-
-void InvalidToken(){
-    printf("ERROR ON LINE NUMBER %s : \n Invalid Token %s\n", yylineno,yytext);
-    exit(0);
 }
 
 int yywrap(void){
