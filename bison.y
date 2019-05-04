@@ -24,9 +24,6 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d", yylineno); pr
      | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
      | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}
      | INPUT error NEWLINE 
-     {
-        printf("Bad Input");
-     }
 ;
 
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
