@@ -2,7 +2,8 @@
     #include <stdio.h>
     extern int yylex();
     extern char* yytext;
-    extern int yylineno;  
+    extern int yylineno;
+    extern void yyerror(char*);
 %}
 
 %token OPERATION SEMI_COLON  EQUALS 
