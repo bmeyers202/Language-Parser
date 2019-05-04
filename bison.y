@@ -19,10 +19,10 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
-     | EXPRESSION NEWLINE                   {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}  
-     | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
-     | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}
+INPUT: ASSIGNMENT NEWLINE                   {ECHO; printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
+     | EXPRESSION NEWLINE                   {ECHO;printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}  
+     | INPUT ASSIGNMENT NEWLINE             {ECHO; printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");}
+     | INPUT EXPRESSION NEWLINE             {ECHO; printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");}
      | INPUT error NEWLINE 
 ;
 
