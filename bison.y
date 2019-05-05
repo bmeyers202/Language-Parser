@@ -19,7 +19,7 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID Assignment>\n", yylineno);yylineno++;}
+INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
      | EXPRESSION NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID Expression>\n", yylineno);yylineno++;}
      | INPUT ASSIGNMENT NEWLINE             {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
      | INPUT EXPRESSION NEWLINE             {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Expression>\n", yylineno);yylineno++;}
