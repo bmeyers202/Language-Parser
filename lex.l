@@ -2,15 +2,13 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-
+boolean invalidTokenFlag = false;
 %}
 
 whitespace  [ \t\r\v\f]
 newline     [\n]                     
 digits      [0-9]+                                          
 id          [a-zA-Z][a-zA-Z0-9]*   
-boolean inValidTokenFlag = false;
-
 %%
 
 {digits}                    {yylval.number = atoi(yytext); ECHO; return NUM;}
@@ -28,7 +26,7 @@ boolean inValidTokenFlag = false;
 
 {newline}                                         {return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO; invalidToken = True;}
+.                                                 {ECHO; invalidTokenFlag = True;}
 
 %%
 void yyerror(char *reason) {
