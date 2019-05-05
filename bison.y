@@ -27,7 +27,7 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("%s\n", $1); printf("   <LIN
      | INPUT error NEWLINE   
 ;
 
-ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON     {$$ = $1 $2 $3 $4;}
+ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON     {$$ = $1 '=' $3 ';';}
 ;
 
 EXPRESSION: IDENTIFIER OPERATION IDENTIFIER         {$$ = $1 $2 $3;}
