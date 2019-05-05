@@ -4,6 +4,7 @@
     extern char* yytext;
     extern int yylineno;
     extern void yyerror();
+    extern void invalidToken();
     extern int invalidTokenFlag;
 %}
 %token OPERATION SEMI_COLON  EQUALS 
