@@ -11,7 +11,7 @@
 %token IDENTIFIER NUM OTHER NEWLINE END_OF_FILE
 
 %type <op> OPERATION
-%type <id> ASSIGNMENT EXPRESSION 
+%type <id> IDENTIFIER ASSIGNMENT EXPRESSION 
 
 %union{
     int number;
