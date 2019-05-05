@@ -2,13 +2,14 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-boolean extern inValidTokenFlag = fasle;
+
 %}
 
 whitespace  [ \t\r\v\f]
 newline     [\n]                     
 digits      [0-9]+                                          
-id          [a-zA-Z][a-zA-Z0-9]*    
+id          [a-zA-Z][a-zA-Z0-9]*   
+boolean inValidTokenFlag = false;
 
 %%
 
