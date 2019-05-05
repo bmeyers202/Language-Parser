@@ -28,12 +28,6 @@
 %token OPERATION SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
 %token IDENTIFIER NUM OTHER NEWLINE END_OF_FILE
-%type <op> OPERATION
-%union{
-    int number;
-    char* id;
-    char* other;
-}
 
 /*************************************************************
  Grammer rule definitions. Displays a message of whether each line
