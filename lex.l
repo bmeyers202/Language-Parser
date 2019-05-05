@@ -5,7 +5,7 @@ void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
 int errorFlag = 0;
-char temp;
+string temp;
 %}
 
 whitespace  [ \t\r\v\f]
