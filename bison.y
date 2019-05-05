@@ -28,12 +28,12 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("%s\n", $1); printf("   <LIN
 ;
 
 
-ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON                 {$$}
+ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON                 {$$;}
 ;
-EXPRESSION: IDENTIFIER OPERATION IDENTIFIER                             {$$}
-           | BRACKET_OPEN EXPRESSION BRACKET_CLOSE                         {$$}
-           | EXPRESSION OPERATION IDENTIFIER                        {$$}
-           | IDENTIFIER OPERATION BRACKET_OPEN EXPRESSION BRACKET_CLOSE     {$$}
+EXPRESSION: IDENTIFIER OPERATION IDENTIFIER                             {$$;}
+           | BRACKET_OPEN EXPRESSION BRACKET_CLOSE                         {$$;}
+           | EXPRESSION OPERATION IDENTIFIER                        {$$;}
+           | IDENTIFIER OPERATION BRACKET_OPEN EXPRESSION BRACKET_CLOSE     {$$;}
 ;
 %%
 
