@@ -35,7 +35,8 @@ EXPRESSION: IDENTIFIER OPERATION IDENTIFIER
 ;
 %%
 int main(){
+  printf("\n");
   yyparse();
-  printf("Reached End of File\n");
+  printf("\n");
   return 0;
 }
