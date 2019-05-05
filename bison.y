@@ -30,10 +30,22 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("%s\n", $1); printf("   <LIN
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON     {$$ = $1 = $3 ;;}
 ;
 
-EXPRESSION: IDENTIFIER OPERATION IDENTIFIER         {$$ = $1 $2 $3;}
-           | BRACKET_OPEN EXPRESSION BRACKET_CLOSE  {$$ = $1 $2 $3;}
-           | EXPRESSION OPERATION IDENTIFIER        {$$ = $1 $2 $3;}
-           | IDENTIFIER OPERATION BRACKET_OPEN EXPRESSION BRACKET_CLOSE {$$ = $1 $2 $3 $4 $5;}
+EXPRESSION: IDENTIFIER ' + ' IDENTIFIER         {$$ = $1 + $3;}
+           | IDENTIFIER ' - ' IDENTIFIER         {$$ = $1 - $3;}
+           | IDENTIFIER ' * ' IDENTIFIER         {$$ = $1 * $3;}
+           | IDENTIFIER ' / ' IDENTIFIER         {$$ = $1 / $3;}
+           |  IDENTIFIER ' % ' IDENTIFIER         {$$ = $1 % $3;}
+           | BRACKET_OPEN EXPRESSION BRACKET_CLOSE  {$$ = ($2);}
+           | EXPRESSION ' + ' IDENTIFIER         {$$ = $1 + $3;}
+           | EXPRESSION ' - ' IDENTIFIER         {$$ = $1 - $3;}
+           | EXPRESSION ' * ' IDENTIFIER         {$$ = $1 * $3;}
+           | EXPRESSION ' / ' IDENTIFIER         {$$ = $1 / $3;}
+           | EXPRESSION ' % ' IDENTIFIER         {$$ = $1 % $3;}
+           | IDENTIFIER ' + ' BRACKET_OPEN EXPRESSION BRACKET_CLOSE {$$ = $1 + ($4);}
+           | IDENTIFIER ' - ' BRACKET_OPEN EXPRESSION BRACKET_CLOSE {$$ = $1 - ($4);}
+           | IDENTIFIER ' * ' BRACKET_OPEN EXPRESSION BRACKET_CLOSE {$$ = $1 * ($4);}
+           | IDENTIFIER ' / ' BRACKET_OPEN EXPRESSION BRACKET_CLOSE {$$ = $1 / ($4);}
+           | IDENTIFIER ' % ' BRACKET_OPEN EXPRESSION BRACKET_CLOSE {$$ = $1 % ($4);}
 ;
 %%
 
