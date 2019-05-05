@@ -1,3 +1,12 @@
+/*************************************************************
+ Name: Blake Meyers(cssc0430, Red id: 819557369)
+ Project: CS530 Assignment 3
+ File: syntax.y
+ Notes: The file contains the grammer rules for the different acceptable
+ statments in the input. This file will print a statment indicating whether each line 
+ passed or failed and provide a reason if it failed.
+ *************************************************************/
+ 
 %{
     #include <stdio.h>
     extern int yylex();
