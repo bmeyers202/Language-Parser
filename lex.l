@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-int invalidTokenFlag = 0;
+int extern invalidTokenFlag = 0;
+int extern errorFlag = 0;
 %}
 
 whitespace  [ \t\r\v\f]
@@ -30,8 +31,9 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 %%
 void yyerror(char *reason) {
-    printf("   <LINE %d", yylineno);
-    printf(" FAILED: %s>   ", reason);
+    //printf("   <LINE %d", yylineno);
+    //printf(" FAILED: %s>   ", reason);
+    errorFlag = 1;
 }
 
 int yywrap(void){
