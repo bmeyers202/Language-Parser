@@ -1,3 +1,16 @@
+/*************************************************************
+ Name: Blake Meyers(cssc0430, Red id: 819557369)
+ Project: CS530 Assignment 3
+ File: semantics.l
+ Notes: The file contains the semantic rules for the file inputs. 
+ This file will print each token and also indicate which tokens are valid 
+ and which are not. It will set a flag if the token entered is invalid 
+ for the syntax.y file to handle in it's messages.
+ *************************************************************/
+ 
+ /*************************************************************
+ Funcion, library, and variable declarations
+ *************************************************************/
 %{
 #include <stdio.h>
 #include "y.tab.h"
@@ -7,14 +20,16 @@ int invalidTokenFlag = 0;
 int errorFlag = 0;
 %}
 
+ /*************************************************************
+ Defines valid input, prints tokens, and returns variable
+ name for token for use in syntax.y file
+ *************************************************************/
 whitespace  [ \t\r\v\f]
-newline     [\n]                     
-digits      [0-9]+                                          
+newline     [\n]                                                             
 id          [a-zA-Z][a-zA-Z0-9]*   
 %%
 
-{digits}                    {yylval.number = atoi(yytext); ECHO; return NUM;}
-{id}                        {yylval.id = strdup(yytext); ECHO; return IDENTIFIER;}                                                                          
+{id}                                              {ECHO; return IDENTIFIER;}                                                                          
 
 " + "                                             {ECHO; return OPERATION;}
 " - "                                             {ECHO; return OPERATION;}
@@ -31,6 +46,9 @@ id          [a-zA-Z][a-zA-Z0-9]*
 .                                                 {ECHO; invalidTokenFlag = 1;}
 
 %%
+ /*************************************************************
+ Custon error handling functions
+ *************************************************************/
 void yyerror(char *reason) {
     errorFlag = 1;
 }
@@ -39,8 +57,4 @@ void invalidToken(){
     printf("   <LINE %d", yylineno);
     printf(" FAILED: Invalid Token>\n");
     invalidTokenFlag = 0;
-}
-
-int yywrap(void){
-    return 1;
 }
