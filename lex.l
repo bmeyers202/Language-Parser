@@ -26,12 +26,11 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO; yyerror("Invalid Token");}
+.                                                 {ECHO; yyerror("Invalid Token ");}
 
 %%
 void yyerror(char *reason) {
-    printf("   <LINE %d", yylineno);
-    printf(" FAILED: %s>\n", reason);
+    printf(" REASON: %s>", reason);
 }
 
 int yywrap(void){
