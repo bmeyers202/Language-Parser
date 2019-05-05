@@ -4,7 +4,7 @@
     extern char* yytext;
     extern int yylineno;
     extern void yyerror();
-    extern int errorFlag;
+    extern int invalidTokenFlag;
 %}
 %token OPERATION SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
@@ -17,11 +17,11 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");yylineno++;}
-     | EXPRESSION NEWLINE                   {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");yylineno++;}  
-     | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n");yylineno++;}
-     | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n");yylineno++;}
-     | INPUT error NEWLINE                  {printf("\n"); yylineno++;}
+INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n")};yylineno++;}
+     | EXPRESSION NEWLINE                   {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n")};yylineno++;}
+     | INPUT ASSIGNMENT NEWLINE             {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n")};yylineno++;}
+     | INPUT EXPRESSION NEWLINE             {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n")};yylineno++;}
+     | INPUT error NEWLINE                  {printf("   <LINE %d", yylineno); printf(" FAILED: syntax error>\n")}; yylineno++;}
      | INPUT NEWLINE                        {printf("\n"); yylineno++;}
 ;
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
