@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-int extern invalidTokenFlag = 0;
-int extern errorFlag = 0;
+int invalidTokenFlag = 0;
+int errorFlag = 0;
 %}
 
 whitespace  [ \t\r\v\f]
