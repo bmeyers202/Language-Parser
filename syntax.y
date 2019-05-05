@@ -6,7 +6,11 @@
  statments in the input. This file will print a statment indicating whether each line 
  passed or failed and provide a reason if it failed.
  *************************************************************/
- 
+
+
+/*************************************************************
+ Function, linrary, and variable declarations
+ *************************************************************/
 %{
     #include <stdio.h>
     extern int yylex();
@@ -17,6 +21,10 @@
     extern int invalidTokenFlag;
     extern int errorFlag;
 %}
+
+/*************************************************************
+ Indicate the tokens that will be used in the grammer rules
+ *************************************************************/
 %token OPERATION SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
 %token IDENTIFIER NUM OTHER NEWLINE END_OF_FILE
@@ -27,6 +35,10 @@
     char* other;
 }
 
+/*************************************************************
+ Grammer rule definitions. Displays a message of whether each line
+ passed of if there was an error.
+ *************************************************************/
 %%
 INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
      | EXPRESSION NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID Expression>\n", yylineno);yylineno++;}
