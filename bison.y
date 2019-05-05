@@ -7,7 +7,7 @@
     extern void invalidToken();
     extern int invalidTokenFlag;
     extern int errorFlag;
-    extern char temp;
+    extern string temp;
 %}
 %token OPERATION SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
