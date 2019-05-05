@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
+boolean extern inValidTokenFlag = fasle;
 %}
 
 whitespace  [ \t\r\v\f]
@@ -26,7 +27,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {newline}                                         {return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO;}
+.                                                 {ECHO; invalidToken = True;}
 
 %%
 void yyerror(char *reason) {
