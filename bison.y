@@ -4,6 +4,7 @@
     extern char* yytext;
     extern int yylineno;
     extern void yyerror();
+    extern int errorFlag;
 %}
 %token OPERATION SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
