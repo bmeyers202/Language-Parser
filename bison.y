@@ -19,11 +19,11 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID ASSIGNMENT>\n", yylineno);yylineno++;}
-     | EXPRESSION NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID EXPRESSION>\n", yylineno);yylineno++;}
-     | INPUT ASSIGNMENT NEWLINE             {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID ASSIGNMENT>\n", yylineno);yylineno++;}
-     | INPUT EXPRESSION NEWLINE             {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID EXPRESSION>\n", yylineno);yylineno++;}
-     | INPUT error NEWLINE                  {printf("   <LINE %d FAILED: syntax error>\n", yylineno); yylineno++;}
+INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID Assignment>\n", yylineno);yylineno++;}
+     | EXPRESSION NEWLINE                   {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: VALID Expression>\n", yylineno);yylineno++;}
+     | INPUT ASSIGNMENT NEWLINE             {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
+     | INPUT EXPRESSION NEWLINE             {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Expression>\n", yylineno);yylineno++;}
+     | INPUT error NEWLINE                  {printf("   <LINE %d FAILED: Syntax Error>\n", yylineno); yylineno++;}
      | INPUT NEWLINE                        {printf("\n"); yylineno++;}
 ;
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
