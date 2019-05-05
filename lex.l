@@ -11,22 +11,22 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 %%
 
-{digits}                    {yylval.number = atoi(yytext); ECHO; return NUM;}
-{id}                        {yylval.id = strdup(yytext); ECHO; return IDENTIFIER;}                                      
+{digits}                    {yylval.number = atoi(yytext); return NUM;}
+{id}                        {yylval.id = strdup(yytext); return IDENTIFIER;}                                      
 
-" + "                                             {ECHO; return OPERATION;}
-" - "                                             {ECHO; return OPERATION;}
-" * "                                             {ECHO; return OPERATION;}
-" / "                                             {ECHO; return OPERATION;}
-" % "                                             {ECHO; return OPERATION;}
-" ; "                                             {ECHO; return SEMI_COLON;}
-" = "                                             {ECHO; return EQUALS;}
-"("                                               {ECHO; return BRACKET_OPEN;}
-")"                                               {ECHO; return BRACKET_CLOSE;}
+" + "                                             {return OPERATION;}
+" - "                                             {return OPERATION;}
+" * "                                             {return OPERATION;}
+" / "                                             {return OPERATION;}
+" % "                                             {return OPERATION;}
+" ; "                                             {return SEMI_COLON;}
+" = "                                             {return EQUALS;}
+"("                                               {return BRACKET_OPEN;}
+")"                                               {return BRACKET_CLOSE;}
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO;}
+.                                                 {ECHO; yyerror("Invalid Token");}
 
 %%
 void yyerror(char *reason) {
