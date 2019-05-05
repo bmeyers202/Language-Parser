@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
-boolean invalidTokenFlag = false;
+bool invalidTokenFlag = false;
 %}
 
 whitespace  [ \t\r\v\f]
