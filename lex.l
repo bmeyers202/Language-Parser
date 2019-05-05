@@ -37,7 +37,7 @@ void yyerror(char *reason) {
 
 void invalidToken(){
     printf("   <LINE %d", yylineno);
-    printf(" FAILED: %Invalid Token>\n");
+    printf(" FAILED: Invalid Token>\n");
     invalidTokenFlag = 0;
 }
 
