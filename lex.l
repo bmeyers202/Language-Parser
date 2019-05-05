@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "y.tab.h"
 void extern yyerror(char*);
+void extern invalidToken();
 int invalidTokenFlag = 0;
 int errorFlag = 0;
 %}
@@ -34,6 +35,11 @@ void yyerror(char *reason) {
     //printf("   <LINE %d", yylineno);
     //printf(" FAILED: %s>   ", reason);
     errorFlag = 1;
+}
+
+void invalidToken(){
+    printf("   <LINE %d", yylineno);
+    printf(" FAILED: %Invalid Token>\n");
 }
 
 int yywrap(void){
