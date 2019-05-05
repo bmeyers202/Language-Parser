@@ -6,6 +6,7 @@
     extern void yyerror();
     extern void invalidToken();
     extern int invalidTokenFlag;
+    extern int errorFlag;
 %}
 %token OPERATION SEMI_COLON  EQUALS 
 %token BRACKET_OPEN  BRACKET_CLOSE 
