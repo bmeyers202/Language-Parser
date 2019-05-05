@@ -11,8 +11,8 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 %%
 
-{digits}                    {yylval.number = atoi(yytext); return NUM;}
-{id}                        {yylval.id = strdup(yytext); return IDENTIFIER;}                                                                          
+{digits}                    {yylval.number = atoi(yytext); ECHO; return NUM;}
+{id}                        {yylval.id = strdup(yytext); ECHO; return IDENTIFIER;}                                                                          
 
 " + "                                             {ECHO; return OPERATION;}
 " - "                                             {ECHO; return OPERATION;}
