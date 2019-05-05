@@ -27,7 +27,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {newline}                                         {yylineno++; return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO; invalidTokenFlag = 1);}
+.                                                 {ECHO; invalidTokenFlag = 1;}
 
 %%
 void yyerror(char *reason) {
