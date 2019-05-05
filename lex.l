@@ -5,6 +5,7 @@ void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
 int errorFlag = 0;
+char* temp = "";
 %}
 
 whitespace  [ \t\r\v\f]
@@ -33,6 +34,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 %%
 void yyerror(char *reason) {
     errorFlag = 1;
+    temp = yytext;
 }
 
 void invalidToken(){
