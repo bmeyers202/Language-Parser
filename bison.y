@@ -18,10 +18,10 @@
 }
 
 %%
-INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n")};yylineno++;}
-     | EXPRESSION NEWLINE                   {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n")};yylineno++;}
-     | INPUT ASSIGNMENT NEWLINE             {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID ASSIGNMENT>\n")};yylineno++;}
-     | INPUT EXPRESSION NEWLINE             {if(invalidTokenFlag == 1){InvalidToken()};else {printf("   <LINE %d", yylineno); printf(" PASSED: VALID EXPRESSION>\n")};yylineno++;}
+INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1)InvalidToken();else {printf("   <LINE %d PASSED: VALID ASSIGNMENT>\n", yylineno);yylineno++;}
+     | EXPRESSION NEWLINE                   {if(invalidTokenFlag == 1)InvalidToken();else {printf("   <LINE %d PASSED: VALID EXPRESSION>\n", yylineno);yylineno++;}
+     | INPUT ASSIGNMENT NEWLINE             {if(invalidTokenFlag == 1)InvalidToken();else {printf("   <LINE %d PASSED: VALID ASSIGNMENT>\n", yylineno);yylineno++;}
+     | INPUT EXPRESSION NEWLINE             {if(invalidTokenFlag == 1)InvalidToken();else {printf("   <LINE %d PASSED: VALID EXPRESSION>\n", yylineno);yylineno++;}
      | INPUT error NEWLINE                  {printf("   <LINE %d", yylineno); printf(" FAILED: syntax error>\n"); yylineno++;}
      | INPUT NEWLINE                        {printf("\n"); yylineno++;}
 ;
