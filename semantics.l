@@ -56,7 +56,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
  Note: Function overloading
  *************************************************************/
 void yyerror(char *reason) {
-    printf("   !! %s !! ", yychar);
+    printf("   !! %s !! ", yytext);
     errorFlag = 1;
 }
 
