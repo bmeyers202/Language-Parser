@@ -20,6 +20,7 @@
     extern void invalidToken();
     extern int invalidTokenFlag;
     extern int errorFlag;
+    extern FILE* yyin;
 %}
 
 /*************************************************************
@@ -49,7 +50,8 @@ EXPRESSION: IDENTIFIER OPERATION IDENTIFIER
            | IDENTIFIER OPERATION BRACKET_OPEN EXPRESSION BRACKET_CLOSE
 ;
 %%
-int main(){
+int main(int argc, char *argv[]){
+  yyin = fopen(argv[1], "r");
   printf("\n");
   yyparse();
   printf("\n");
