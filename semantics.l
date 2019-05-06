@@ -46,13 +46,28 @@ id          [a-zA-Z][a-zA-Z0-9]*
 .                                                 {ECHO; invalidTokenFlag = 1;}
 
 %%
- /*************************************************************
- Custon error handling functions
+/*************************************************************
+ FUNCTION: yyerror()
+ DESCRIPTION: Called from syntax.y if syntax error existed while parsing.
+ Sets error flag to 1 to indicate an error has occured.
+ I/O:
+    input parameters: Char pointer
+    output: none
+ Note: Function overloading
  *************************************************************/
 void yyerror(char *reason) {
     errorFlag = 1;
 }
 
+/*************************************************************
+ FUNCTION: invalidToken()
+ DESCRIPTION: Called from syntax.y if invalid token was found while parsing.
+ prints invalid token statment and sets invalid token flag back to zero.
+ I/O:
+    input parameters: none
+    output: none
+ Note: invalidTokenFlag set in semantics.l when it doesn't recognize token
+ *************************************************************/
 void invalidToken(){
     printf("   <LINE %d", yylineno);
     printf(" FAILED: Invalid Token>\n");
