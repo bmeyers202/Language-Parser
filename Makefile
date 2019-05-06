@@ -31,6 +31,7 @@ semantics:
 
 #Generates the executable
 exp:	
+	@echo "Generating y.tab.c.."
 	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
 	export PATH="./:$PATH"
 
