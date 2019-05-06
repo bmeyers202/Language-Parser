@@ -3,9 +3,13 @@
 #Project: CS530 Assignment 3
 #File: Makefile
 #Notes: Allows for easy compilation of the program.
+#
+# Usage:
+# make        compiles exectuable
+# make clean  removes executable, header, and c files
 ###########################################################
 
-#variables
+#Variables
 C=cc
 CFLAGS = -ll -ly
 YFLAGS = -d
