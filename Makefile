@@ -19,7 +19,7 @@ exp:	semantics
 	export PATH="./:$PATH"
 
 semantics:
-	flex syntax.l
+	flex semantics.l
 syntax:
 	yacc $(YFLAGS) syntax.y
 
