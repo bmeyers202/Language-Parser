@@ -5,4 +5,4 @@ fail = failed + after + semicolon ; please + work
 
 one + two
 ;
-here we go;
+here we go ; 
