@@ -8,6 +8,6 @@ one + two
 here we go ; 
 why - can't = seven ; 
 w
-ere;
+ere ; 
 seven = the + best ; where = here + there ; 
 one = lonely + number ; two + bad ; 
