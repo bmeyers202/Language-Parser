@@ -14,6 +14,14 @@
     A language parser that takes in a file named ex.txt, which contains a mixture of both good and bad statements. The program uses Flex and Bison
     to evaluate these statements and indicate whether they passed or failed the set grammar rules.
 
+#### The BNF Grammar:
+<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<op>    ::= + | - | % | / | *
+<id>    ::= <char> | <id> <char> | <id> <digit>
+<exp>   ::= <id> <op> <id> | <exp> <op> <id>| ( <exp> ) | <id> <op> ( <exp> )
+<ass>   ::= <id> = <exp> ;
+<input> ::= <ass> <newline> | <exp> <newline> | <input> <ass> <newline> | <input> <exp> <newline> | <newline> | <input> <newline>
+ 
 #### Files Included:
 **README.md**:
 
@@ -30,7 +38,7 @@
 
 **Makefile**:
 
-    Creates a compiled version of exp.cpp.
+    Creates a compiled version of syntax.y and semantics.l called exp.
 
 #### Compilation Instructions:
 **Make Instructions:**
@@ -38,7 +46,7 @@
     make all:
     	compiles the exp file
 
-    make clear:
+    make clean:
     	deletes the exp file, the lex.yy.c file, the y.tab.c file, and the y.tab.h file
 
 **Running the Program:**
