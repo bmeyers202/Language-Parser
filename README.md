@@ -63,7 +63,7 @@
 
 #### Known Deficiencies and Bugs:
 **Known Bugs and Deficiencies**
-* Pass/Fail statements are not right justified to prevent errors that could arrise from a long statment in ex.txt file.
+* Pass/Fail statements are not right justified to prevent errors that could arrise from varying statment lengths in ex.txt file.
   
 #### Lessons Learned:
 * It can be time consuming to learn new programs (flex and bison)
