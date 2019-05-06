@@ -42,7 +42,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 ")"                                               {ECHO; return BRACKET_CLOSE;}
 
 {newline}                                         {return NEWLINE;}
-{whitespace}                                      ;
+{whitespace}                                      {ECHO;}
 .                                                 {ECHO; invalidTokenFlag = 1;}
 
 %%
