@@ -12,7 +12,7 @@
 
 #### The Program:
 
-    A language parser that takes in a text file named, which contains a mixture of both good and bad statements. The program uses Flex and Bison to evaluate these statements and indicate whether they passed or failed the set grammar rules.
+    A language parser that takes in a text file, which contains a mixture of both good and bad statements. The program uses Flex and Bison to evaluate these statements and indicate whether they passed or failed the set grammar rules.
 
 #### The BNF Grammar:
 
