@@ -41,6 +41,7 @@ INPUT: ASSIGNMENT NEWLINE                   {if(invalidTokenFlag == 1)invalidTok
      | INPUT EXPRESSION NEWLINE             {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Expression>\n", yylineno);yylineno++;}
      | INPUT error NEWLINE                  {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d FAILED: Syntax Error>\n", yylineno); yylineno++;}
      | INPUT NEWLINE                        {printf("\n"); yylineno++;}
+     | NEWLINE
 ;
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
 ;
