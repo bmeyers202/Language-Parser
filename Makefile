@@ -6,16 +6,27 @@
 ###########################################################
 
 #variables
-CC=g++
+C=cc
+CFLAGS = -ll -ly
+YFLAGS = -y
+NAME = -o exp
 
 all: exp
-	$(CC) lex.yy.c y.tab.c -ll -ly -o exp
+
+exp:	semantics
+	syntax
+	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
 	export PATH="./:$PATH"
 
+semantics:
+           flex syntax.l
+syntax:
+	yacc $(YFLAGS) syntax.y
+
 clean:
-	rm rf exp
+	rm exp
 	rm lex.yy.c
 	rm y.tab.c
-  rm y.tab.h
+  	rm y.tab.h
     
 #######################[ EOF: Makefile ]###################
