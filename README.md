@@ -26,7 +26,7 @@
 
 **syntax.y**:
 
-    Declares and briefly explains functions implemented in xed.cpp.
+     The file contains the grammer rules for the different acceptable statments in the input. This file will print a statment indicating whether each line passed or failed and provide a reason if it failed.
 
 **Makefile**:
 
