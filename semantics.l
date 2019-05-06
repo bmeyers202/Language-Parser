@@ -19,7 +19,7 @@ void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
 int errorFlag = 0;
-char[] tmp;
+char*tmp;
 %}
 
  /*************************************************************
@@ -58,7 +58,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
  Note: Function overloading
  *************************************************************/
 void yyerror(char *reason) {
-    strcpy(tmp,yytext);
+    tmp = *yytext;
     errorFlag = 1;
 }
 
