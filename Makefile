@@ -12,30 +12,30 @@
 #Variables
 C=cc
 FCC = flex
-YCC = yacc
+BCC = bison
 CFLAGS = -ll -ly
-YFLAGS = -d
+BFLAGS = -d
 NAME = -o exp
 
 all: syntax semantics exp
 
 #Generates the y.tab.h
 syntax:
-	@echo "Generating y.tab.h.."
-	$(YCC) $(YFLAGS) syntax.y
+	@echo "Generating syntax.tab.h.."
+	$(BCC) $(BFLAGS) syntax.y
 
 #Generates the y.tab.c
 semantics:
-	@echo "Generating y.tab.c.."
+	@echo "Generating syntax.tab.c.."
 	$(FCC) semantics.l
 
 #Generates the executable
 exp:	
 	@echo "Generating executable.."
-	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
+	$(C) lex.yy.c syntax.tab.c $(CFLAGS) $(NAME)
 
 #Removes the following files with "make clean" command to allow for a fresh compile
 clean:
 	@echo "Cleaning up..."
-	rm exp lex.yy.c y.tab.c y.tab.h
+	rm exp lex.yy.c syntax.tab.c syntax.tab.h
 #######################[ EOF: Makefile ]###################
