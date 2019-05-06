@@ -31,7 +31,7 @@ semantics:
 
 #Generates the executable
 exp:	
-	@echo "Generating y.tab.c.."
+	@echo "Generating executable.."
 	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
 
 #Removes the following files with "make clean" command to allow for a fresh compile
