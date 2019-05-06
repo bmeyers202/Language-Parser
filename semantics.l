@@ -14,7 +14,7 @@
 %{
 #include <stdio.h>
 #include <string.h>
-#include "y.tab.h"
+#include "syntax.tab.h"
 void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
