@@ -21,7 +21,8 @@
 
 **semantics.l**:
 
-    The file cointains an algorithm that opens an SIC/XE object file and its accompanying symbol file, which then disassembles the object code, and generate an SIC/XE source file, and SIC/XE listing file using the assembled code.
+    The file contains the semantic rules for the file inputs. This file will print each token and also indicate which tokens are valid 
+ and which are not. It will set a flag if the token entered is invalid for the syntax.y file to handle in it's messages.
 
 **syntax.y**:
 
@@ -52,10 +53,9 @@
     The input filename needs to be named ex.txt
 
 #### Significant Design Decisions:
-    All tokens are printed as they are encountered and this happens in the semantics.l file.
-    All statments indicated whether each line passed or failed happens in the syntax.y file, after each line is finished
-    reading.
-    Error flags are set in the semantics.l file to communicate errors with the syntax.y file
+    * All tokens are printed as they are encountered and this happens in the semantics.l file
+    * All pass or fail statements happen in the syntax.y file, after each line is finished reading
+    * Error flags are set in the semantics.l file to communicate errors with the syntax.y file
 
 #### Extra features:
 
