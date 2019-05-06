@@ -13,11 +13,13 @@
  *************************************************************/
 %{
 #include <stdio.h>
+#include <string.h>
 #include "y.tab.h"
 void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
 int errorFlag = 0;
+string temp;
 %}
 
  /*************************************************************
@@ -56,7 +58,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
  Note: Function overloading
  *************************************************************/
 void yyerror(char *reason) {
-    printf("   !! %s !! ", yytext);
+    strcpy(tmp,yytext);
     errorFlag = 1;
 }
 
