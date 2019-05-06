@@ -13,18 +13,25 @@ NAME = -o exp
 
 all: syntax semantics exp
 
+#Generates the y.tab.h
 syntax:
+	@echo "Generating y.tab.h.."
 	yacc $(YFLAGS) syntax.y
-	
+
+#Generates the y.tab.c
 semantics:
+	@echo "Generating y.tab.c.."
 	flex semantics.l
-	
-	
+
+#Generates the executable
 exp:	
+	@echo "Generating executable.."
 	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
 	export PATH="./:$PATH"
 
+#Removes the following files with "make clean" command to allow for a fresh compile
 clean:
+	@echo "Cleaning up..."
 	rm exp
 	rm lex.yy.c
 	rm y.tab.c
