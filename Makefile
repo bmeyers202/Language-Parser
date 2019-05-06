@@ -11,6 +11,8 @@
 
 #Variables
 C=cc
+FCC = flex
+YCC = yacc
 CFLAGS = -ll -ly
 YFLAGS = -d
 NAME = -o exp
@@ -20,16 +22,15 @@ all: syntax semantics exp
 #Generates the y.tab.h
 syntax:
 	@echo "Generating y.tab.h.."
-	yacc $(YFLAGS) syntax.y
+	$(YCC) $(YFLAGS) syntax.y
 
 #Generates the y.tab.c
 semantics:
 	@echo "Generating y.tab.c.."
-	flex semantics.l
+	$(FCC) semantics.l
 
 #Generates the executable
 exp:	
-	@echo "Generating executable.."
 	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
 	export PATH="./:$PATH"
 
