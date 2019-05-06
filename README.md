@@ -22,7 +22,7 @@
     <id>    ::= <char> | <id> <char> | <id> <digit>
     <exp>   ::= <id> <op> <id> | <exp> <op> <id>| ( <exp> ) | <id> <op> ( <exp> )
     <ass>   ::= <id> = <exp> ;
-    <input> ::= <ass> <newline> | <exp> <newline> | <input> <ass> <newline> | <input> <exp> <newline> | <newline> | <input> <newline>
+    <input> ::= <ass> \n | <exp> \n | <input> <ass> \n | <input> <exp> \n | \n | <input> \n
  
 #### Files Included:
 **README.md**:
