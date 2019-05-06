@@ -15,12 +15,12 @@
     to evaluate these statements and indicate whether they passed or failed the set grammar rules.
 
 #### The BNF Grammar:
-> <digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-> <op>    ::= + | - | % | / | *
-> <id>    ::= <char> | <id> <char> | <id> <digit>
-> <exp>   ::= <id> <op> <id> | <exp> <op> <id>| ( <exp> ) | <id> <op> ( <exp> )
-> <ass>   ::= <id> = <exp> ;
-> <input> ::= <ass> <newline> | <exp> <newline> | <input> <ass> <newline> | <input> <exp> <newline> | <newline> | <input> <newline>
+    <digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+    <op>    ::= + | - | % | / | *
+    <id>    ::= <char> | <id> <char> | <id> <digit>
+    <exp>   ::= <id> <op> <id> | <exp> <op> <id>| ( <exp> ) | <id> <op> ( <exp> )
+    <ass>   ::= <id> = <exp> ;
+    <input> ::= <ass> <newline> | <exp> <newline> | <input> <ass> <newline> | <input> <exp> <newline> | <newline> | <input> <newline>
  
 #### Files Included:
 **README.md**:
