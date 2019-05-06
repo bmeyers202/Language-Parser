@@ -19,7 +19,6 @@
     extern void yyerror();
     extern void invalidToken();
     extern int invalidTokenFlag;
-    extern int errorFlag;
     extern FILE* yyin;
 %}
 
