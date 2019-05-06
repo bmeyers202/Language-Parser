@@ -33,13 +33,9 @@ semantics:
 exp:	
 	@echo "Generating y.tab.c.."
 	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
-	export PATH="./:$PATH"
 
 #Removes the following files with "make clean" command to allow for a fresh compile
 clean:
 	@echo "Cleaning up..."
-	rm exp
-	rm lex.yy.c
-	rm y.tab.c
-	rm y.tab.h
+	rm exp lex.yy.c y.tab.c y.tab.h
 #######################[ EOF: Makefile ]###################
