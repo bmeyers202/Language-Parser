@@ -11,16 +11,18 @@ CFLAGS = -ll -ly
 YFLAGS = -y
 NAME = -o exp
 
-all: semantics syntax exp
+all: syntax semantics exp
 
+syntax:
+	yacc $(YFLAGS) syntax.y
+	
+semantics:
+	flex semantics.l
+	
+	
 exp:	
 	$(C) lex.yy.c y.tab.c $(CFLAGS) $(NAME)
 	export PATH="./:$PATH"
-
-semantics:
-	flex semantics.l
-syntax:
-	yacc $(YFLAGS) syntax.y
 
 clean:
 	rm exp
