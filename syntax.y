@@ -53,8 +53,6 @@ EXPRESSION: IDENTIFIER OPERATION IDENTIFIER
 %%
 int main(int argc, char *argv[]){
   yyin = fopen(argv[1], "r");
-  printf("\n");
   yyparse();
-  printf("\n");
   return 0;
 }
