@@ -4,7 +4,7 @@ blake = sugar + spice + nice ;
 fail = failed + after + semicolon ; please + work
 
 one + two
-;
+ ; 
 here we go ; 
 why - can't = seven ; 
 w
