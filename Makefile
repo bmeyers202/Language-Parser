@@ -8,7 +8,7 @@
 #variables
 C=cc
 CFLAGS = -ll -ly
-YFLAGS = -y
+YFLAGS = -d
 NAME = -o exp
 
 all: syntax semantics exp
