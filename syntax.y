@@ -44,7 +44,6 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d PASSED: Valid A
      | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d PASSED: Valid Expression>\n", yylineno);yylineno++;}
      | INPUT error NEWLINE                  {printf(errorMessage); errorMessage = " "; yylineno++;}
      | INPUT NEWLINE                        {printf("\n"); yylineno++;}
-     | NEWLINE                              {printf("\n"); yylineno++;}
 ;
 ASSIGNMENT: IDENTIFIER EQUALS EXPRESSION SEMI_COLON
 ;
