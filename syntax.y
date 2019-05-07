@@ -19,6 +19,7 @@
     extern void yyerror();
     extern void invalidToken();
     extern FILE* yyin;
+    extern char* errorMessage;
 %}
 
 %define parse.error verbose
@@ -41,8 +42,8 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d PASSED: Valid A
      | EXPRESSION NEWLINE                   {printf("   <LINE %d PASSED: VALID Expression>\n", yylineno);yylineno++;}
      | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
      | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d PASSED: Valid Expression>\n", yylineno);yylineno++;}
-     | INPUT error NEWLINE                  {yylineno++;}
-     | error NEWLINE INPUT                  {yylineno++;}
+     | INPUT error NEWLINE                  {printf(errorMessage); yylineno++;}
+     | error NEWLINE INPUT                  {printf(errorMessage); yylineno++;}
      | INPUT NEWLINE                        {printf("\n"); yylineno++;}
      | NEWLINE                              {printf("\n"); yylineno++;}
 ;
