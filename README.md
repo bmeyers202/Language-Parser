@@ -75,13 +75,12 @@
     Makefile also cleans the lex.yy.c file, the y.tab.c file, and the y.tab.h file in addition to the required exp.
 
 #### Known Deficiencies and Bugs:
-**Known Bugs and Deficiencies**
-* N/A
+    * N/A
   
 #### Lessons Learned:
-* It can be time consuming to learn new programs (flex and bison)
-* If your not sure, always ask for clarification from the professor
-* There's many great resouces out there to help solve whatever problem you encounter
-* Starting programs well before the deadline is very helpful as it allows time for questions
-* Test program with all types of inputs
+    * It can be time consuming to learn new programs (flex and bison)
+    * If your not sure, always ask for clarification from the professor
+    * There's many great resouces out there to help solve whatever problem you encounter
+    * Starting programs well before the deadline is very helpful as it allows time for questions
+    * Test program with all types of inputs
 <!-----------------------------------------[ EOF: README.md ]--------------------------------->
