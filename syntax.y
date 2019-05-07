@@ -35,10 +35,10 @@
  passed and if there was an error.
  *************************************************************/
 %%
-INPUT: ASSIGNMENT NEWLINE                   {printf("\n     <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
-     | EXPRESSION NEWLINE                   {printf("\n     <LINE %d PASSED: VALID Expression>\n", yylineno);yylineno++;}
-     | INPUT ASSIGNMENT NEWLINE             {printf("\n     <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
-     | INPUT EXPRESSION NEWLINE             {printf("\n     <LINE %d PASSED: Valid Expression>\n", yylineno);yylineno++;}
+INPUT: ASSIGNMENT NEWLINE                   {printf("\n     <LINE %d PASSED: Valid Assignment>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
+     | EXPRESSION NEWLINE                   {printf("\n     <LINE %d PASSED: VALID Expression>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
+     | INPUT ASSIGNMENT NEWLINE             {printf("\n     <LINE %d PASSED: Valid Assignment>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
+     | INPUT EXPRESSION NEWLINE             {printf("\n     <LINE %d PASSED: Valid Expression>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
      | INPUT error NEWLINE                  {printf("\n"); printf(errorMessage); yylineno++;}
      | error NEWLINE                        {printf("\n"); printf(errorMessage); yylineno++;}
      | INPUT NEWLINE                        {yylineno++;}
