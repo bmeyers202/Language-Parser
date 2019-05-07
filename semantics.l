@@ -32,13 +32,13 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {id}                                              {ECHO; return IDENTIFIER;}                                                                          
 
-" + "                                             {ECHO; return OPERATION;}
-" - "                                             {ECHO; return OPERATION;}
-" * "                                             {ECHO; return OPERATION;}
-" / "                                             {ECHO; return OPERATION;}
-" % "                                             {ECHO; return OPERATION;}
-" ; "                                             {ECHO; return SEMI_COLON;}
-" = "                                             {ECHO; return EQUALS;}
+"+"                                             {ECHO; return OPERATION;}
+"-"                                             {ECHO; return OPERATION;}
+"*"                                             {ECHO; return OPERATION;}
+"/"                                             {ECHO; return OPERATION;}
+"%"                                             {ECHO; return OPERATION;}
+";"                                             {ECHO; return SEMI_COLON;}
+"="                                             {ECHO; return EQUALS;}
 "("                                               {ECHO; return BRACKET_OPEN;}
 ")"                                               {ECHO; return BRACKET_CLOSE;}
 
