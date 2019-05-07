@@ -61,7 +61,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 void yyerror(char *reason) {
     sz = snprintf(NULL, 0, "   <LINE %d FAILED: %s>\n", yylineno, reason);
     errorMessage = (char *)malloc(sz + 1);
-    snprintf(errorMessage, "   <LINE %d FAILED: %s>\n", yylineno, reason);
+    snprintf(errorMessage, sz+1, "   <LINE %d FAILED: %s>\n", yylineno, reason);
 }
  
 /*************************************************************
