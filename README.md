@@ -30,12 +30,11 @@
 
 **semantics.l**:
 
-    The file contains the semantic rules for the file inputs. This file will print each token and also indicate which tokens are valid 
- and which are not. It will set a flag if the token entered is invalid for the syntax.y file to handle in it's messages.
+    The file contains the semantic rules for the file inputs. This file will print each token and reutn the token identifiers for use in the syntax.y file grammar rules.
 
 **syntax.y**:
 
-     The file contains the grammar rules for the different acceptable statments in the input. This file will print a statment indicating whether each line passed or failed and provide a reason if it failed.
+     The file contains the grammar rules for the different acceptable statments in the input. This file will call a function to print a statment indicating whether each line passed or failed and provide a reason if it failed.
 
 **Makefile**:
 
@@ -64,8 +63,8 @@
 #### Significant Design Decisions:
 
     * All tokens are printed as they are encountered and this happens in the semantics.l file
-    * All pass or fail statements are generated in the syntax.y file, after each line is finished reading
-    * Error flags are set in the semantics.l file to communicate errors with the syntax.y file
+    * Pass or fail statements are in semantics.l functions and called from the syntax.y file, after each line is finished reading
+    * Each line is seperated in the output by "*'s" to make for easier reading
 
 #### Extra features:
 
@@ -73,7 +72,7 @@
 
 #### Known Deficiencies and Bugs:
 **Known Bugs and Deficiencies**
-* Pass/Fail statements are not right justified to prevent errors that could arrise from varying statement lengths in ex.txt file.
+* N/A
   
 #### Lessons Learned:
 * It can be time consuming to learn new programs (flex and bison)
