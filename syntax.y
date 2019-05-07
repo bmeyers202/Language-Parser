@@ -42,7 +42,7 @@ INPUT: ASSIGNMENT NEWLINE                   {printf("   <LINE %d PASSED: Valid A
      | EXPRESSION NEWLINE                   {printf("   <LINE %d PASSED: VALID Expression>\n", yylineno);yylineno++;}
      | INPUT ASSIGNMENT NEWLINE             {printf("   <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
      | INPUT EXPRESSION NEWLINE             {printf("   <LINE %d PASSED: Valid Expression>\n", yylineno);yylineno++;}
-     | INPUT error NEWLINE                  {printf(errorMessage); errorMessage = " "; yylineno++;}
+     | INPUT error NEWLINE                  {printf(errorMessage); yylineno++;}
      | INPUT NEWLINE                        {printf("Just a Input Newline\n"); yylineno++;}
      | NEWLINE                              {printf("Just a Newline\n"); yylineno++;}
 ;
