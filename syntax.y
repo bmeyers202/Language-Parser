@@ -32,9 +32,7 @@
 
 /*************************************************************
  Grammer rule definitions. Displays a message of whether each line
- passed of if there was an error.
- {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
- {if(invalidTokenFlag == 1)invalidToken();else printf("   <LINE %d FAILED: Syntax Error>\n", yylineno); yylineno++;}
+ passed and if there was an error.
  *************************************************************/
 %%
 INPUT: ASSIGNMENT NEWLINE                   {printf("     <LINE %d PASSED: Valid Assignment>\n", yylineno);yylineno++;}
