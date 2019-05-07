@@ -57,13 +57,11 @@ id          [a-zA-Z][a-zA-Z0-9]*
  Note: Function overloading
  *************************************************************/
  
-/*************************************************************
 void yyerror(char *reason) {
-   if (errorFlag == 1){
-      printf(    printf("   <LINE %d", yylineno);
-    printf(" FAILED: Invalid Token>\n");
+    printf("%s", yytext);
+    printf("   <LINE %d", yylineno);
+    printf(" FAILED: %s\n", reasson);
 }
- *************************************************************/
  
 /*************************************************************
  FUNCTION: invalidToken()
