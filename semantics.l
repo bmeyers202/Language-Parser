@@ -16,8 +16,6 @@
 #include <string.h>
 #include "syntax.tab.h"
 void extern yyerror(char*);
-void extern invalidToken();
-int invalidTokenFlag = 0;
 int sz;
 char *errorMessage;
 %}
@@ -45,13 +43,14 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 {newline}                                         {return NEWLINE;}
 {whitespace}                                      ;
-.                                                 {ECHO; invalidTokenFlag = 1;}
+.                                                 {ECHO;}
 
 %%
 /*************************************************************
  FUNCTION: yyerror()
  DESCRIPTION: Called from syntax.y if syntax error existed while parsing.
- Sets error flag to 1 to indicate an error has occured.
+ Stores error message in dynamically sized variable, errorMessage, so that \
+ it can be saved to be printed after entire input statement is done printing.
  I/O:
     input parameters: Char pointer
     output: none
@@ -59,22 +58,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
  *************************************************************/
  
 void yyerror(char *reason) {
-    sz = snprintf(NULL, 0, "   <LINE %d FAILED: %s>\n", yylineno, reason);
+    sz = snprintf(NULL, 0, "     <LINE %d FAILED: %s>\n", yylineno, reason);
     errorMessage = (char *)malloc(sz + 1);
     snprintf(errorMessage, sz+1, "   <LINE %d FAILED: %s>\n", yylineno, reason);
-}
- 
-/*************************************************************
- FUNCTION: invalidToken()
- DESCRIPTION: Called from syntax.y if invalid token was found while parsing.
- prints invalid token statment and sets invalid token flag back to zero.
- I/O:
-    input parameters: none
-    output: none
- Note: invalidTokenFlag set in semantics.l when it doesn't recognize token
- *************************************************************/
-void invalidToken(){
-    printf("   <LINE %d", yylineno);
-    printf(" FAILED: Invalid Token>\n");
-    invalidTokenFlag = 0;
 }
