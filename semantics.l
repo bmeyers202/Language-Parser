@@ -48,19 +48,27 @@ id          [a-zA-Z][a-zA-Z0-9]*
 
 %%
 
+/*************************************************************
+ FUNCTION: printPassed()
+ DESCRIPTION: Called from syntax.y if no syntax error existed while parsing.
+ Prints a message indicating that the line number and that the statement passed.
+ I/O:
+    input parameters: Char pointer to either "Expression" or "Assignment"
+    output: none
+ Note: Function overloading
+ *************************************************************/
 void printPassed(char *stmtType) {
     printf("\n<LINE %d PASSED: Valid %s>\n\n", yylineno, stmtType);
     printf("********************************************************************************\n\n");
 }
 
-
 /*************************************************************
  FUNCTION: yyerror()
  DESCRIPTION: Called from syntax.y if syntax error existed while parsing.
- Stores error message in dynamically sized variable, errorMessage, so that \
+ Stores error message in dynamically sized variable, errorMessage, so that
  it can be saved to be printed after entire input statement is done printing.
  I/O:
-    input parameters: Char pointer
+    input parameters: Char pointer to error message
     output: none
  Note: Function overloading
  *************************************************************/
@@ -75,5 +83,4 @@ void yyerror(char *reason) {
        printf("\nError, no memory. Please try running program again.\n");
        exit(0);
     }
-    
 }
