@@ -19,7 +19,7 @@ void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
 int sz;
-char *errMessage;
+char *errorMessage;
 %}
 
  /*************************************************************
@@ -61,7 +61,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 void yyerror(char *reason) {
     sz = snprintf(NULL, 0, "   <LINE %d FAILED: %s>\n", yylineno, reason);
     errorMessage = (char *)malloc(sz + 1);
-    snprintf(errMessage, "   <LINE %d FAILED: %s>\n", yylineno, reason);
+    snprintf(errorMessage, "   <LINE %d FAILED: %s>\n", yylineno, reason);
 }
  
 /*************************************************************
