@@ -3,7 +3,7 @@ blake = sugar + spice + nice ;
 fail = failed + after + semicolon ; please + work
 
 
-(one + two) - (three + four) ; 
+(one + two) - (three + four)
 one + two
  ; 
 here we go ; 
