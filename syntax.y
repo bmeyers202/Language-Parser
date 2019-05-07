@@ -40,8 +40,8 @@ INPUT: ASSIGNMENT NEWLINE                   {printPassed("Assignment");yylineno+
      | EXPRESSION NEWLINE                   {printPassed("Expression");yylineno++;}
      | INPUT ASSIGNMENT NEWLINE             {printPassed("Assignment");yylineno++;}
      | INPUT EXPRESSION NEWLINE             {printPassed("Expression");yylineno++;}
-     | INPUT error NEWLINE                  {printf(errorMessage); yylineno++;}
-     | error NEWLINE                        {printf(errorMessage); yylineno++;}
+     | INPUT error NEWLINE                  {printf(errorMessage + 80 * "*" + "\n"); yylineno++;}
+     | error NEWLINE                        {printf(errorMessage + 80 * "*" + "\n"); yylineno++;}
      | INPUT NEWLINE                        {yylineno++;}
      | NEWLINE                              {yylineno++;}
 ;
