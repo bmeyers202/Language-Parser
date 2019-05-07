@@ -49,7 +49,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 %%
 
 void printPassed(char *stmtType) {
-    printf"     <LINE %d PASSED: VALID %s>\n\n", yylineno, stmtType);
+    printf("     <LINE %d PASSED: VALID %s>\n\n", yylineno, stmtType);
     printf("********************************************************************************\n");
 }
 
