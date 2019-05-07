@@ -68,5 +68,12 @@ void printPassed(char *stmtType) {
 void yyerror(char *reason) {
     sz = snprintf(NULL, 0, "     <LINE %d FAILED: %s>\n", yylineno, reason);
     errorMessage = (char *)malloc(sz + 1);
-    snprintf(errorMessage, sz+1, "<LINE %d FAILED: %s>\n\n", yylineno, reason);
+    if (errorMessage != NULL){
+       snprintf(errorMessage, sz+1, "<LINE %d FAILED: %s>\n\n", yylineno, reason);
+    }
+    else{
+       printf("Error, no memory. Please try running program again.\n");
+       exit(0);
+    }
+    
 }
