@@ -13,7 +13,7 @@
 C=cc
 FCC = flex
 BCC = bison
-CFLAGS = -ll -ly
+CFLAGS = -ly -ll
 BFLAGS = -d
 NAME = -o exp
 
