@@ -49,7 +49,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 %%
 
 void printPassed(char *stmtType) {
-    printf("     <LINE %d PASSED: VALID %s>\n\n", yylineno, stmtType);
+    printf("<LINE %d PASSED: VALID %s>\n\n", yylineno, stmtType);
     printf("********************************************************************************\n");
 }
 
@@ -68,6 +68,5 @@ void printPassed(char *stmtType) {
 void yyerror(char *reason) {
     sz = snprintf(NULL, 0, "     <LINE %d FAILED: %s>\n", yylineno, reason);
     errorMessage = (char *)malloc(sz + 1);
-    snprintf(errorMessage, sz+1, "   <LINE %d FAILED: %s>\n\n", yylineno, reason);
-    printf("********************************************************************************\n");
+    snprintf(errorMessage, sz+1, "<LINE %d FAILED: %s>\n\n", yylineno, reason);
 }
