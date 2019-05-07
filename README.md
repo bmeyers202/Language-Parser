@@ -39,7 +39,11 @@
 **Makefile**:
 
     Creates a compiled version of syntax.y and semantics.l called exp.
+    
+**ex1.txt**
 
+     A file that was used to test the program and make sure that the grammar rules worked properly.
+     
 #### Compilation Instructions:
 **Make Instructions:**
 
