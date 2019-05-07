@@ -41,7 +41,7 @@ id          [a-zA-Z][a-zA-Z0-9]*
 "("                                               {ECHO; return BRACKET_OPEN;}
 ")"                                               {ECHO; return BRACKET_CLOSE;}
 
-{newline}                                         {return NEWLINE;}
+{newline}                                         {ECHO; return NEWLINE;}
 {whitespace}                                      ;
 .                                                 {ECHO;}
 
