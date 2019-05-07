@@ -10,6 +10,8 @@ here we go ;
 why - can't = seven ; 
 w
 ere ; 
+
+print("/n") ; 
 seven = the + best ; where = here + there ; 
 one = lonely + number ; two + bad ; 
 NaP = b4night + bed ; 
