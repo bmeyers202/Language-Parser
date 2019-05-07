@@ -16,6 +16,7 @@
 #include <string.h>
 #include "syntax.tab.h"
 void extern yyerror(char*);
+void extern printPassed(char*);
 int sz;
 char *errorMessage;
 %}
@@ -46,6 +47,13 @@ id          [a-zA-Z][a-zA-Z0-9]*
 .                                                 {ECHO;}
 
 %%
+
+void printPassed(char *stmtType) {
+    printf"     <LINE %d PASSED: VALID %s>\n", yylineno, stmtType);
+    printf("\n********************************************************************************\n");
+}
+
+
 /*************************************************************
  FUNCTION: yyerror()
  DESCRIPTION: Called from syntax.y if syntax error existed while parsing.
@@ -61,5 +69,5 @@ void yyerror(char *reason) {
     sz = snprintf(NULL, 0, "     <LINE %d FAILED: %s>\n", yylineno, reason);
     errorMessage = (char *)malloc(sz + 1);
     snprintf(errorMessage, sz+1, "   <LINE %d FAILED: %s>\n", yylineno, reason);
-    printf("********************************************************************************\n");
+    printf("\n********************************************************************************\n");
 }
