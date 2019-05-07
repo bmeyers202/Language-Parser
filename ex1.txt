@@ -16,3 +16,4 @@ seven = the + best ; where = here + there ;
 one = lonely + number ; two + bad ; 
 NaP = b4night + bed ; 
 invalid = = seven + four ;  
+invalid = = ;  
