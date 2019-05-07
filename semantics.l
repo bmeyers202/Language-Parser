@@ -18,6 +18,7 @@
 void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
+int errorFlag = 0;
 %}
 
  /*************************************************************
@@ -55,10 +56,15 @@ id          [a-zA-Z][a-zA-Z0-9]*
     output: none
  Note: Function overloading
  *************************************************************/
+ 
+/*************************************************************
 void yyerror(char *reason) {
-     printf("  < %s >  ", error);
+   if (errorFlag == 1){
+      printf(    printf("   <LINE %d", yylineno);
+    printf(" FAILED: Invalid Token>\n");
 }
-
+ *************************************************************/
+ 
 /*************************************************************
  FUNCTION: invalidToken()
  DESCRIPTION: Called from syntax.y if invalid token was found while parsing.
