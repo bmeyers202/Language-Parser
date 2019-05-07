@@ -72,7 +72,7 @@ void yyerror(char *reason) {
        snprintf(errorMessage, sz+1, "<LINE %d FAILED: %s>\n\n", yylineno, reason);
     }
     else{
-       printf("Error, no memory. Please try running program again.\n");
+       printf("\nError, no memory. Please try running program again.\n");
        exit(0);
     }
     
