@@ -58,7 +58,6 @@ id          [a-zA-Z][a-zA-Z0-9]*
  *************************************************************/
  
 void yyerror(char *reason) {
-    printf("%s", yytext);
     printf("   <LINE %d", yylineno);
     printf(" FAILED: %s\n", reason);
 }
