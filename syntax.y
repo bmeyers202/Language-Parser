@@ -19,6 +19,7 @@
     extern void yyerror();
     extern FILE* yyin;
     extern char* errorMessage;
+    extern void printPassed(char*);
 %}
 
 %define parse.error verbose
@@ -35,12 +36,12 @@
  passed and if there was an error.
  *************************************************************/
 %%
-INPUT: ASSIGNMENT NEWLINE                   {printf("\n     <LINE %d PASSED: Valid Assignment>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
-     | EXPRESSION NEWLINE                   {printf("\n     <LINE %d PASSED: VALID Expression>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
-     | INPUT ASSIGNMENT NEWLINE             {printf("\n     <LINE %d PASSED: Valid Assignment>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
-     | INPUT EXPRESSION NEWLINE             {printf("\n     <LINE %d PASSED: Valid Expression>\n", yylineno);printf("********************************************************************************\n");yylineno++;}
-     | INPUT error NEWLINE                  {printf("\n"); printf(errorMessage); yylineno++;}
-     | error NEWLINE                        {printf("\n"); printf(errorMessage); yylineno++;}
+INPUT: ASSIGNMENT NEWLINE                   {printPassed("Assignment");yylineno++;}
+     | EXPRESSION NEWLINE                   {printPassed("Expression");yylineno++;}
+     | INPUT ASSIGNMENT NEWLINE             {printPassed("Assignment");yylineno++;}
+     | INPUT EXPRESSION NEWLINE             {printPassed("Expression");yylineno++;}
+     | INPUT error NEWLINE                  {printf(errorMessage); yylineno++;}
+     | error NEWLINE                        {printf(errorMessage); yylineno++;}
      | INPUT NEWLINE                        {yylineno++;}
      | NEWLINE                              {yylineno++;}
 ;
