@@ -42,15 +42,15 @@ id          [a-zA-Z][a-zA-Z0-9]*
 "("                                               {ECHO; return BRACKET_OPEN;}
 ")"                                               {ECHO; return BRACKET_CLOSE;}
 
-{newline}                                         {ECHO; return NEWLINE;}
+{newline}                                         {return NEWLINE;}
 {whitespace}                                      ;
 .                                                 {ECHO;}
 
 %%
 
 void printPassed(char *stmtType) {
-    printf("<LINE %d PASSED: VALID %s>\n\n", yylineno, stmtType);
-    printf("********************************************************************************\n");
+    printf("\n<LINE %d PASSED: VALID %s>\n\n", yylineno, stmtType);
+    printf("********************************************************************************\n\n");
 }
 
 
