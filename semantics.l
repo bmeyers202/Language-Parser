@@ -18,7 +18,6 @@
 void extern yyerror(char*);
 void extern invalidToken();
 int invalidTokenFlag = 0;
-int errorFlag = 0;
 %}
 
  /*************************************************************
