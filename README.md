@@ -78,9 +78,9 @@
     * N/A
   
 #### Lessons Learned:
-    * It can be time consuming to learn new programs (flex and bison)
-    * If your not sure, always ask for clarification from the professor
+    * Flex and Bison are powerful tools for creating language parsers
+    * If your not sure about a part of an assignment, always ask for clarification
     * There's many great resources out there to help solve whatever problem you encounter
-    * Starting programs well before the deadline is very helpful as it allows time for questions
+    * Starting programs well before the deadline is very helpful as it allows ample time for questions
     * Test program with all types of inputs
 <!-----------------------------------------[ EOF: README.md ]--------------------------------->
