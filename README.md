@@ -30,7 +30,7 @@
 
 **semantics.l**:
 
-    The file contains the semantic rules for the file inputs. This file will print each token and reutn the token identifiers for use in the syntax.y file grammar rules.
+    The file contains the semantic rules for the file inputs. This file will print each token and return the token identifiers for use in the syntax.y file grammar rules.
 
 **syntax.y**:
 
@@ -80,7 +80,7 @@
 #### Lessons Learned:
     * It can be time consuming to learn new programs (flex and bison)
     * If your not sure, always ask for clarification from the professor
-    * There's many great resouces out there to help solve whatever problem you encounter
+    * There's many great resources out there to help solve whatever problem you encounter
     * Starting programs well before the deadline is very helpful as it allows time for questions
     * Test program with all types of inputs
 <!-----------------------------------------[ EOF: README.md ]--------------------------------->
